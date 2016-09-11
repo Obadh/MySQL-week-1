@@ -1,0 +1,41 @@
+mysql> CREATE DATABASE todos;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| todos              |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> USE todos;
+Database changed
+mysql> CREATE TABLE todos(
+    ->   Id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    ->   Name VARCHAR(30) NULL,
+    ->   Done BOOLEAN NOT NULL DEFAULT false
+    -> );
+Query OK, 0 rows affected (0.48 sec)
+
+mysql> insert into todos (Name) VALUES ('Wake Up'),('Get Dressed'),('Go To Work'),('Have A Lunch'),('Go To Sleep');
+Query OK, 5 rows affected (0.11 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM todos;
++----+--------------+------+
+| Id | Name         | Done |
++----+--------------+------+
+|  1 | Wake Up      |    0 |
+|  2 | Get Dressed  |    0 |
+|  3 | Go To Work   |    0 |
+|  4 | Have A Lunch |    0 |
+|  5 | Go To Sleep  |    0 |
++----+--------------+------+
+5 rows in set (0.00 sec)
